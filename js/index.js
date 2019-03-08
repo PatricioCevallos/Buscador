@@ -63,6 +63,7 @@ function mostrarTodos(){
                 '<br>Codigo_Postal:'+val.Codigo_Postal+
                 '<br>Tipo:'+val.Tipo+
                 '<br>Precio:'+val.Precio+
+                '<br>Registro_Nro:'+val.Id+
                 '</td>';
             htmlTodos+= '</tr></table>';
         });
@@ -109,8 +110,9 @@ function buscar(){
                 ciudad: $('#selectCiudad').val(),
                 tipo: $('#selectTipo').val(),
                 rango: $('#rangoPrecio').val()
-            }
-        }).done(function(data){
+            },
+        })
+        .done(function(data){
             var htmlDatos = '';
 
             $(data).each(function(key, val){
@@ -131,6 +133,7 @@ function buscar(){
 
         return false;
     })
+
 }
 
 // EJECUCUCION DE LAS FUNCIONES
@@ -138,7 +141,6 @@ $(function(){
     $('#mostrarTodos').click(function(){
        mostrarTodos();
     });
-
     ciudadTipo();
     buscar()
 })
